@@ -1,15 +1,17 @@
 apiVersion: networking.istio.io/v1beta1
 kind: Gateway
 metadata:
-  name: istio-ingressgateway
+  name: iotag-gateway
   namespace: istio-system
 spec:
   selector:
     istio: ingressgateway
   servers:
-  - port:
-      number: 80
-      name: http
-      protocol: HTTP
-    hosts:
-    - "*"
+    - port:
+        number: 80
+        name: http
+        protocol: HTTP
+      hosts:
+        - iot-agent-login-screen-dev.iotag-dev.com
+        - iot-agent-auth-dev.iotag-dev.com
+        - iotag-dev.com
