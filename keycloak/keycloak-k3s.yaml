@@ -23,14 +23,14 @@ spec:
               value: admin
             - name: KEYCLOAK_ADMIN_PASSWORD
               value: admin
-
-            # ważne przy ingress bez TLS
             - name: KC_HOSTNAME
               value: iot-agent-auth-dev.iotag-dev.com
-            - name: KC_PROXY
-              value: edge
+            - name: KC_PROXY_HEADERS
+              value: xforwarded
             - name: KC_HOSTNAME_STRICT
               value: "false"
+            - name: KC_HTTP_ENABLED
+              value: "true"
 
           ports:
             - containerPort: 8080
@@ -55,6 +55,7 @@ metadata:
   namespace: iotag-dev
   annotations:
     kubernetes.io/ingress.class: traefik
+    traefik.ingress.kubernetes.io/router.entrypoints: web
 spec:
   rules:
     - host: iot-agent-auth-dev.iotag-dev.com
