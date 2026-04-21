@@ -12,6 +12,4 @@ spec:
         name: http
         protocol: HTTP
       hosts:
-        - iot-agent-login-screen-dev.iotag-dev.com
-        - iot-agent-auth-dev.iotag-dev.com
-        - iotag-dev.com
+        - "*"

@@ -1,0 +1,11 @@
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: allow-all-auth
+  namespace: iotag-dev
+spec:
+  selector:
+    matchLabels:
+      app: iot-agent-authentication
+  rules:
+    - {}
